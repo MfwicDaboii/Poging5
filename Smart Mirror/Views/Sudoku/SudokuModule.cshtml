@@ -1,0 +1,95 @@
+﻿@using Microsoft.Ajax.Utilities
+@model Smart_Mirror.ViewModels.HomeScreenViewModel
+@{
+	ViewBag.Title = "Home Page";
+	string datum = Model.CurrentDay.Date.ToString();
+	string DayOfTheWeek = Model.CurrentDay.DayOfWeek.ToString();
+	string Day = datum.Substring(0, datum.IndexOf('-'));
+	string Month = Model.ReturnMonth(Model.CurrentDay.Month);
+	string Year = Model.CurrentDay.Year.ToString();
+	string date = Month + " " + Day + ", " + Year;
+}
+
+<html class="animated fadeIn" >
+<head>
+	<title> Smart Mirror</title>
+	<link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Dosis:400,600" rel='stylesheet' type='text/css'>
+</head>
+<body onload="init();">
+	<div class="DateTime">
+		<div id="time">
+		</div>
+		<div id="DayOfTheWeek">
+			@DayOfTheWeek<br />
+			@date
+		</div>
+	</div>
+	<div id="AgendaHolder">
+		<div id="AgendaHeader"> Agenda</div>
+		@foreach (string Events in @Model.GetAgenda())
+		{
+			<div id="Event">@Events</div>
+		}
+	</div>
+	@Html.ActionLink("Hey Harm. Psssssssssssst", "SudokuModule2", "Sudoku")
+</body>
+</html>
+<script type=text/javascript>
+
+	function init() {
+		updateTime();
+		window.setInterval(updateTime, 1000);
+	}
+
+	function updateTime() {
+		var time = document.getElementById('time');
+		var DateAndTime = new Date().toLocaleString();
+		time.innerText = DateAndTime.substring(DateAndTime.indexOf(':') - 2, 15);
+	}
+	function TextAnimation() {
+
+		var blue = '#2980b9';
+		var l = Snap('#logo');
+		var p = l.select('path');
+
+		l.append(p);
+
+		p.attr({
+			fill: blue,
+			stroke: '#0066CC',
+		});
+
+		setTimeout( function() {
+			// modify this one line below, and see the result !
+			var logoTitle = 'alticreation';
+			var logoRandom = '';
+			var logoTitleContainer = l.text(0, '98%', '');
+			var possible = "-+*/|}{[]~\\\":;?/.><=+-_)(*&^%$#)}";
+			logoTitleContainer.attr({
+				fontSize: 280,
+				fontFamily: 'Dosis',
+				fontWeight: '600'
+			});
+
+			function generateRandomTitle(i, logoRandom) {
+				setTimeout( function() {
+					logoTitleContainer.attr({ text: logoRandom });
+				}, i*70 );
+			}
+
+			for( var i=0; i < logoTitle.length+1; i++ ) {
+				logoRandom = logoTitle.substr(0, i);
+				for( var j=i; j < logoTitle.length; j++ ) {
+					logoRandom += possible.charAt(Math.floor(Math.random() * possible.length));
+				}
+				generateRandomTitle(i, logoRandom);
+				logoRandom = '';
+			}
+
+		}, 500 );
+
+	}
+
+</script>

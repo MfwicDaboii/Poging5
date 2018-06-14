@@ -1,0 +1,99 @@
+﻿@font-face {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	src: url("https://fonts.googleapis.com/css?family=Roboto");
+}
+body {
+	background-color: black;
+	color: white;
+	overflow: hidden;
+}
+/*Datum en tijd Module*/
+.DateTime {
+	width: 15%;
+	margin-top: 2.5%;
+	margin-right: 2.5%;
+	float: right;
+}
+#time {
+	color: white;
+	font-family: 'Roboto';
+	font-size: 50px;
+
+}
+#DayOfTheWeek {
+	color: white;
+	font-family: 'Roboto';
+	font-size: 30px;
+	margin-left: 2.5%;
+	margin-top: 2.5%;
+}
+
+/*Agenda*/
+#AgendaHolder {
+	float: left;
+	width: 20%;
+	margin-top: 2.5%;
+	margin-left: 2.5%;
+}
+#AgendaHeader {
+	color: white;
+	font-family: 'Roboto';
+	font-size: 25px;
+	padding: 0 0 2% 0;
+	border-bottom: 2px solid white;
+}
+#Event {
+	color: white;
+	font-family: 'Roboto';
+	font-size: 20px;
+	margin-top: 2.5%;
+}
+/*NewsBar*/
+#NewsTitle {
+	color: white;
+	font-family: 'Roboto';
+	font-size: 20px;
+	margin-top: 2.5%;
+	float: left;
+	border: 2px solid red;
+}
+/*DialogBox*/
+#DialogHolder {
+	left: 50%;
+	top: 50%;
+	font-size: 20px;
+	color: white;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	border: 2px solid red;
+}
+.AgendaBox {
+	color: white;
+	font-size: 16px;
+}
+
+#SudokuHolder {
+	color: white;
+}
+body a {
+		margin: 12.5% 7.5%;
+		margin-left: 10%;
+		height: 30%;
+		width: 30%;
+		font-family: 'Roboto';
+		font-size: 30px;
+		color: white;
+		padding: 5%;
+		text-decoration: none;
+		float: left;
+	}
+body a wef {
+	width: 90%;
+}
+	body a img {
+		margin-left: auto;
+		height: 100%;
+		width: auto;
+	}
